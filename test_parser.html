@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Parser Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .pass {
+            background: #28a745;
+        }
+
+        .fail {
+            background: #dc3545;
+        }
+
+        pre {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        h1 {
+            color: #00d9ff;
+        }
+
+        h2 {
+            color: #eee;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Resume Optimizer Test Results</h1>
+    <div id="results"></div>
+
+    <script src="js/utils/keywordExtractor.js"></script>
+    <script src="js/utils/atsScoring.js"></script>
+    <script src="js/utils/resumeOptimizer.js"></script>
+    <script>
+        const sampleResume = `John Smith
+john.smith@email.com | (555) 123-4567 | New York, NY
+LinkedIn: linkedin.com/in/johnsmith
+
+PROFESSIONAL SUMMARY
+Experienced software developer with 5+ years in full-stack development.
+
+EXPERIENCE
+Senior Software Engineer | Tech Corp | Jan 2020 - Present
+• Developed scalable web applications using React and Node.js
+• Led team of 5 developers to deliver projects on time
+• Improved system performance by 40%
+
+Software Developer | StartUp Inc | Jun 2018 - Dec 2019
+• Built REST APIs using Python and Flask
+• Implemented CI/CD pipelines with Jenkins
+• Collaborated with cross-functional teams
+
+EDUCATION
+Bachelor of Science in Computer Science
+State University | 2018
+
+SKILLS
+Technical: JavaScript, Python, React, Node.js, SQL, AWS
+Soft Skills: Leadership, Communication, Problem-solving`;
+
+        function runTests() {
+            const results = [];
+
+            // Test parsing
+            const parsed = ResumeOptimizer.parseResumeText(sampleResume);
+
+            // Test 1: Name extraction
+            results.push({
+                name: 'Name Extraction',
+                pass: parsed.fullName.includes('John') && parsed.fullName.includes('Smith'),
+                expected: 'John Smith',
+                actual: parsed.fullName || '(empty)'
+            });
+
+            // Test 2: Email extraction
+            results.push({
+                name: 'Email Extraction',
+                pass: parsed.email === 'john.smith@email.com',
+                expected: 'john.smith@email.com',
+                actual: parsed.email || '(empty)'
+            });
+
+            // Test 3: Phone extraction
+            results.push({
+                name: 'Phone Extraction',
+                pass: parsed.phone && parsed.phone.includes('555'),
+                expected: '(555) 123-4567',
+                actual: parsed.phone || '(empty)'
+            });
+
+            // Test 4: Location extraction
+            results.push({
+                name: 'Location Extraction',
+                pass: parsed.location && parsed.location.includes('New York'),
+                expected: 'New York, NY',
+                actual: parsed.location || '(empty)'
+            });
+
+            // Test 5: Summary extraction
+            results.push({
+                name: 'Summary Extraction',
+                pass: parsed.summary && parsed.summary.includes('software developer'),
+                expected: 'Contains "software developer"',
+                actual: parsed.summary ? parsed.summary.substring(0, 50) + '...' : '(empty)'
+            });
+
+            // Test 6: Experience count
+            results.push({
+                name: 'Experience Count',
+                pass: parsed.experience.length === 2,
+                expected: '2 entries',
+                actual: `${parsed.experience.length} entries`
+            });
+
+            // Test 7: First experience title
+            results.push({
+                name: 'First Experience Title',
+                pass: parsed.experience[0] && parsed.experience[0].title.includes('Senior'),
+                expected: 'Contains "Senior"',
+                actual: parsed.experience[0]?.title || '(empty)'
+            });
+
+            // Test 8: First experience bullets
+            results.push({
+                name: 'First Experience Bullets',
+                pass: parsed.experience[0]?.bullets?.length >= 3,
+                expected: '3+ bullets',
+                actual: `${parsed.experience[0]?.bullets?.length || 0} bullets`
+            });
+
+            // Test 9: Education count
+            results.push({
+                name: 'Education Count',
+                pass: parsed.education.length >= 1,
+                expected: '1+ entries',
+                actual: `${parsed.education.length} entries`
+            });
+
+            // Test 10: Education degree
+            results.push({
+                name: 'Education Degree',
+                pass: parsed.education[0]?.degree && parsed.education[0].degree.includes('Bachelor'),
+                expected: 'Contains "Bachelor"',
+                actual: parsed.education[0]?.degree || '(empty)'
+            });
+
+            // Test 11: Technical Skills
+            results.push({
+                name: 'Technical Skills',
+                pass: parsed.technicalSkills &&
+                    (parsed.technicalSkills.includes('JavaScript') ||
+                        parsed.technicalSkills.includes('Python')),
+                expected: 'Contains JavaScript or Python',
+                actual: parsed.technicalSkills ? parsed.technicalSkills.substring(0, 60) + '...' : '(empty)'
+            });
+
+            // Test 12: Soft Skills
+            results.push({
+                name: 'Soft Skills',
+                pass: parsed.softSkills && parsed.softSkills.includes('Leadership'),
+                expected: 'Contains "Leadership"',
+                actual: parsed.softSkills || '(empty)'
+            });
+
+            // Render results
+            const container = document.getElementById('results');
+
+            let passCount = results.filter(r => r.pass).length;
+            container.innerHTML = `
+                <h2>Test Summary: ${passCount}/${results.length} Passed</h2>
+                ${results.map(r => `
+                    <div class="test-result ${r.pass ? 'pass' : 'fail'}">
+                        <strong>${r.pass ? '✓' : '✗'} ${r.name}</strong><br>
+                        Expected: ${r.expected}<br>
+                        Actual: ${r.actual}
+                    </div>
+                `).join('')}
+                
+                <h2>Full Parsed Data</h2>
+                <pre>${JSON.stringify(parsed, null, 2)}</pre>
+            `;
+        }
+
+        // Run on load
+        runTests();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="GoBot - AI-powered resume optimizer that helps you create and optimize resumes for ATS compatibility">
+    <title>GoBot - AI Resume Optimizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/resume-preview.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="logo-text">GoBot</span>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-right">
+                <button class="btn btn-primary btn-sm" id="getStartedNav">Get Started</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Landing Page -->
+        <section id="landingPage" class="landing-section active">
+            <!-- Hero -->
+            <div class="hero" id="home">
+                <div class="hero-content">
+                    <span class="badge">Powered by AI Analytics</span>
+                    <h1>Land Your Dream Job with <span class="text-gradient">AI-Optimized</span> Resumes</h1>
+                    <p>GoBot analyzes your resume against target job descriptions, optimizes keywords, and provides
+                        professional ATS-friendly templates to help you get more interviews.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" id="heroStart">Build Your Resume Now</button>
+                        <button class="btn btn-secondary btn-large" id="heroOptimize">Optimize Existing</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">95%</span>
+                            <span class="stat-label">ATS Success Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">12k+</span>
+                            <span class="stat-label">Resumes Created</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4.9/5</span>
+                            <span class="stat-label">User Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="resume-card-preview floating">
+                        <div class="preview-header"></div>
+                        <div class="preview-line"></div>
+                        <div class="preview-line short"></div>
+                        <div class="preview-grid">
+                            <div class="preview-block"></div>
+                            <div class="preview-block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-grid" id="features">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>AI Optimization</h3>
+                    <p>Automatically reconstruct your experience bullets for maximum impact using powerful action verbs.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Keyword Analysis</h3>
+                    <p>Identify missing critical skills from job descriptions and seamlessly integrate them into your
+                        resume.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>ATS Scoring</h3>
+                    <p>Get a real-time compatibility score and detailed improvement tips before you even apply.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📑</div>
+                    <h3>Pro Templates</h3>
+                    <p>Access high-conversion, ATS-friendly templates designed by industry experts and HR professionals.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Why it's Free -->
+            <div class="pricing-section" id="pricing">
+                <div class="section-header">
+                    <h2>GoBot is <span class="text-gradient">100% Free</span></h2>
+                    <p>We believe professional career tools should be accessible to everyone. No credit card, no
+                        subscriptions, just powerful AI tools to help you succeed.</p>
+                </div>
+                <div class="free-banner">
+                    <div class="banner-content">
+                        <div class="banner-icon">🎁</div>
+                        <div class="banner-text">
+                            <h3>Open Access For Everyone</h3>
+                            <p>Get unlimited access to all premium templates, AI optimizations, and ATS scoring without
+                                paying a dime.</p>
+                        </div>
+                        <button class="btn btn-primary btn-large"
+                            onclick="document.getElementById('getStartedNav').click()">Get Started Free</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="about-section" id="about">
+                <div class="section-header">
+                    <h2>About GoBot</h2>
+                    <p>The mission behind our AI-powered career assistant.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Empowering Job Seekers</h3>
+                        <p>GoBot was created by a team of engineers and recruiters who realized that the "black box" of
+                            ATS systems was unfairly filtering out qualified candidates.</p>
+                        <p>Our tool uses advanced natural language processing to bridge the gap between your real-world
+                            experience and the specific keywords recruiters are looking for.</p>
+                        <div class="about-stats">
+                            <div class="mini-stat">
+                                <strong>100%</strong>
+                                <span>Privacy Focused</span>
+                            </div>
+                            <div class="mini-stat">
+                                <strong>Open</strong>
+                                <span>Source Friendly</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-section" id="contact">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <h2>Ready to level up?</h2>
+                        <p>Questions about our service? Our career experts are here to help.</p>
+                        <div class="contact-links">
+                            <span>support@gobot.ai</span>
+                            <span>+1 (888) GO-BOT-AI</span>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="email" placeholder="Your Email">
+                        <textarea placeholder="How can we help?"></textarea>
+                        <button class="btn btn-primary" type="button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Privacy Section -->
+            <div class="legal-section hidden" id="privacy">
+                <div class="section-header">
+                    <h2>Privacy Policy</h2>
+                    <p>Your data security is our top priority.</p>
+                </div>
+                <div class="legal-content">
+                    <p>At GoBot, we process your resume data solely for the purpose of optimization. We do not sell your
+                        personal information to third parties.</p>
+                    <ul>
+                        <li>Data is processed client-side whenever possible.</li>
+                        <li>Any data sent to our AI analysis is anonymized.</li>
+                        <li>We do not store your resumes permanently.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Terms Section -->
+            <div class="legal-section hidden" id="terms">
+                <div class="section-header">
+                    <h2>Terms of Service</h2>
+                    <p>Simple terms for a simple service.</p>
+                </div>
+                <div class="legal-content">
+                    <p>By using GoBot, you agree to use the service for personal career development purposes only.</p>
+                    <p>We provide the tool "as is" and do not guarantee specific interview or job outcomes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Container -->
+        <div id="appContainer" class="hidden">
+            <div class="app-header">
+                <button class="btn-back" id="backToHome">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back to Website
+                </button>
+                <div class="app-mode-wrapper">
+                    <div class="mode-switcher">
+                        <button class="mode-btn active" data-mode="create">Create New</button>
+                        <button class="mode-btn" data-mode="optimize">Optimize Existing</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Create Mode -->
+            <section id="createMode" class="mode-section active">
+                <div class="section-header">
+                    <h1>Create Your Perfect Resume</h1>
+                    <p>Enter your details and let GoBot craft an ATS-optimized, professional resume tailored to your
+                        target
+                        job.</p>
+                </div>
+
+                <div class="two-column-layout">
+                    <!-- Left Column: Form -->
+                    <div class="form-column">
+                        <!-- Personal Info -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                    Personal Information
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="fullName">Full Name *</label>
+                                        <input type="text" id="fullName" placeholder="John Doe" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" placeholder="john@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="location">Location</label>
+                                        <input type="text" id="location" placeholder="New York, NY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="linkedin">LinkedIn URL</label>
+                                        <input type="url" id="linkedin" placeholder="linkedin.com/in/johndoe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="portfolio">Portfolio/Website</label>
+                                        <input type="url" id="portfolio" placeholder="johndoe.com">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Summary -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                        <line x1="16" y1="13" x2="8" y2="13" />
+                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                    </svg>
+                                    Professional Summary
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group full-width">
+                                    <label for="summary">Career Objective / Summary</label>
+                                    <textarea id="summary" rows="4"
+                                        placeholder="Brief overview of your professional background, key skills, and career goals..."></textarea>
+                                    <span class="helper-text">Tip: Keep it 2-4 sentences focusing on your value
+                                        proposition</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Work Experience -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                                    </svg>
+                                    Work Experience
+                                </h2>
+                                <button type="button" class="add-btn" id="addExperience">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                    Add Experience
+                                </button>
+                            </div>
+                            <div class="card-body" id="experienceList">
+                                <!-- Experience entries will be added here -->
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                    </svg>
+                                    Education
+                                </h2>
+                                <button type="button" class="add-btn" id="addEducation">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                    Add Education
+                                </button>
+                            </div>
+                            <div class="card-body" id="educationList">
+                                <!-- Education entries will be added here -->
+                            </div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg>
+                                    Skills
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group full-width">
+                                    <label for="technicalSkills">Technical Skills</label>
+                                    <input type="text" id="technicalSkills"
+                                        placeholder="Python, JavaScript, React, SQL, AWS...">
+                                    <span class="helper-text">Separate skills with commas</span>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="softSkills">Soft Skills</label>
+                                    <input type="text" id="softSkills"
+                                        placeholder="Leadership, Communication, Problem-solving...">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="tools">Tools & Technologies</label>
+                                    <input type="text" id="tools" placeholder="Git, Docker, Jira, Figma...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projects -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
+                                    </svg>
+                                    Projects
+                                </h2>
+                                <button type="button" class="add-btn" id="addProject">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                    Add Project
+                                </button>
+                            </div>
+                            <div class="card-body" id="projectList">
+                                <!-- Project entries will be added here -->
+                            </div>
+                        </div>
+
+                        <!-- Certifications -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="8" r="7" />
+                                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                                    </svg>
+                                    Certifications
+                                </h2>
+                                <button type="button" class="add-btn" id="addCertification">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                    Add Certification
+                                </button>
+                            </div>
+                            <div class="card-body" id="certificationList">
+                                <!-- Certification entries will be added here -->
+                            </div>
+                        </div>
+
+                        <!-- Job Description Target -->
+                        <div class="form-card highlight-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <path d="M21 21l-4.35-4.35" />
+                                    </svg>
+                                    Target Job Description
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group full-width">
+                                    <label for="jobDescription">Paste the job posting you're targeting</label>
+                                    <textarea id="jobDescription" rows="8"
+                                        placeholder="Paste the full job description here. GoBot will analyze it to tailor your resume with relevant keywords and optimize for ATS..."></textarea>
+                                </div>
+                                <div id="extractedKeywords" class="keywords-preview hidden">
+                                    <h4>Detected Keywords</h4>
+                                    <div class="keywords-list"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <div class="action-buttons">
+                            <button type="button" class="btn btn-primary btn-large" id="generateResume">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                                Generate ATS-Optimized Resume
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Preview & Score -->
+                    <div class="preview-column">
+                        <div class="sticky-preview">
+                            <!-- ATS Score Card -->
+                            <div class="score-card" id="scoreCard">
+                                <div class="score-header">
+                                    <h3>ATS Compatibility Score</h3>
+                                    <div class="score-circle">
+                                        <svg viewBox="0 0 100 100">
+                                            <circle class="score-bg" cx="50" cy="50" r="45" />
+                                            <circle class="score-progress" cx="50" cy="50" r="45" id="scoreProgress" />
+                                        </svg>
+                                        <span class="score-value" id="scoreValue">--</span>
+                                    </div>
+                                </div>
+                                <div class="score-breakdown" id="scoreBreakdown">
+                                    <div class="score-item">
+                                        <span class="label">Keywords Match</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" id="keywordsProgress"></div>
+                                        </div>
+                                        <span class="value" id="keywordsValue">--%</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="label">Format & Structure</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" id="formatProgress"></div>
+                                        </div>
+                                        <span class="value" id="formatValue">--%</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="label">Content Quality</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" id="contentProgress"></div>
+                                        </div>
+                                        <span class="value" id="contentValue">--%</span>
+                                    </div>
+                                </div>
+                                <div class="score-tips" id="scoreTips">
+                                    <h4>Improvement Tips</h4>
+                                    <ul id="tipsList"></ul>
+                                </div>
+                            </div>
+
+                            <!-- Skill Suggestions -->
+                            <div class="suggestions-card" id="suggestionsCard">
+                                <h3>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                    Suggested Skills to Add
+                                </h3>
+                                <div class="suggestions-list" id="suggestionsList">
+                                    <p class="empty-state">Enter a job description to see skill suggestions</p>
+                                </div>
+                            </div>
+
+                            <!-- Export Options -->
+                            <div class="export-card" id="exportCard">
+                                <h3>Export Resume</h3>
+                                <div class="export-buttons">
+                                    <button class="btn btn-export" id="exportPDF" disabled>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                            <line x1="16" y1="13" x2="8" y2="13" />
+                                            <line x1="16" y1="17" x2="8" y2="17" />
+                                        </svg>
+                                        Download PDF
+                                    </button>
+                                    <button class="btn btn-export" id="exportDOCX" disabled>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                            <path d="M9 15l2 2 4-4" />
+                                        </svg>
+                                        Download DOCX
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Optimize Mode -->
+            <section id="optimizeMode" class="mode-section">
+                <div class="section-header">
+                    <h1>Optimize Your Existing Resume</h1>
+                    <p>Paste your current resume and target job description. GoBot will analyze gaps and regenerate an
+                        ATS-optimized version.</p>
+                </div>
+
+                <div class="two-column-layout">
+                    <!-- Left Column: Input -->
+                    <div class="form-column">
+                        <!-- Resume Upload -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                        <polyline points="17 8 12 3 7 8" />
+                                        <line x1="12" y1="3" x2="12" y2="15" />
+                                    </svg>
+                                    Upload Your Resume
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="file-upload-zone" id="fileUploadZone">
+                                    <div class="upload-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                            <polyline points="17 8 12 3 7 8" />
+                                            <line x1="12" y1="3" x2="12" y2="15" />
+                                        </svg>
+                                    </div>
+                                    <p class="upload-text">Drag & drop your resume here or</p>
+                                    <label class="btn btn-secondary file-input-label">
+                                        <input type="file" id="resumeFile" accept=".pdf,.docx,.doc,.txt" hidden>
+                                        Browse Files
+                                    </label>
+                                    <p class="upload-hint">Supported formats: PDF, DOCX, DOC, TXT (Max 16MB)</p>
+                                </div>
+                                <div class="file-selected hidden" id="fileSelected">
+                                    <div class="file-info">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                        </svg>
+                                        <span id="selectedFileName">resume.pdf</span>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary" id="removeFile">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 6L6 18M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="upload-status hidden" id="uploadStatus">
+                                    <div class="upload-progress">
+                                        <div class="progress-bar file-progress" id="fileProgress"></div>
+                                    </div>
+                                    <p id="uploadStatusText">Uploading...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Existing Resume (Text Option) -->
+                        <div class="form-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                    </svg>
+                                    Or Paste Resume Text
+                                </h2>
+                                <span class="optional-label">Alternative to file upload</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group full-width">
+                                    <label for="existingResume">Paste your resume content</label>
+                                    <textarea id="existingResume" rows="12"
+                                        placeholder="Paste your entire current resume here if not uploading a file..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Target Job Description -->
+                        <div class="form-card highlight-card">
+                            <div class="card-header">
+                                <h2>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <path d="M21 21l-4.35-4.35" />
+                                    </svg>
+                                    Target Job Description
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group full-width">
+                                    <label for="targetJobDescription">Paste the job posting</label>
+                                    <textarea id="targetJobDescription" rows="10"
+                                        placeholder="Paste the full job description you're applying for..."></textarea>
+                                </div>
+                                <div id="optimizeKeywords" class="keywords-preview hidden">
+                                    <h4>Detected Keywords</h4>
+                                    <div class="keywords-list"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Optimize Button -->
+                        <div class="action-buttons">
+                            <button type="button" class="btn btn-primary btn-large" id="optimizeResume">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                Optimize Resume
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-large" id="regenerateResume" disabled>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 4v6h6M23 20v-6h-6" />
+                                    <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15" />
+                                </svg>
+                                Regenerate (New Version)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Results -->
+                    <div class="preview-column">
+                        <div class="sticky-preview">
+                            <!-- Analysis Results -->
+                            <div class="analysis-card" id="analysisCard">
+                                <h3>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21.21 15.89A10 10 0 118 2.83" />
+                                        <path d="M22 12A10 10 0 0012 2v10z" />
+                                    </svg>
+                                    Resume Analysis
+                                </h3>
+                                <div class="analysis-scores">
+                                    <div class="analysis-item">
+                                        <div class="analysis-label">Before Optimization</div>
+                                        <div class="analysis-score" id="beforeScore">--</div>
+                                    </div>
+                                    <div class="analysis-arrow">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                    <div class="analysis-item improved">
+                                        <div class="analysis-label">After Optimization</div>
+                                        <div class="analysis-score" id="afterScore">--</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Changes Highlight -->
+                            <div class="changes-card" id="changesCard">
+                                <h3>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                        <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                    </svg>
+                                    Changes Made
+                                </h3>
+                                <div class="changes-list" id="changesList">
+                                    <p class="empty-state">Click "Optimize Resume" to see changes</p>
+                                </div>
+                            </div>
+
+                            <!-- Missing Skills -->
+                            <div class="missing-skills-card" id="missingSkillsCard">
+                                <h3>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
+                                    Missing Keywords
+                                </h3>
+                                <div class="missing-list" id="missingList">
+                                    <p class="empty-state">Analysis will appear here</p>
+                                </div>
+                            </div>
+
+                            <!-- Export Options -->
+                            <div class="export-card">
+                                <h3>Export Optimized Resume</h3>
+                                <div class="export-buttons">
+                                    <button class="btn btn-export" id="exportOptimizedPDF" disabled>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                        </svg>
+                                        Download PDF
+                                    </button>
+                                    <button class="btn btn-export" id="exportOptimizedDOCX" disabled>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                        </svg>
+                                        Download DOCX
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Resume Preview Modal -->
+        <div class="modal" id="previewModal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Resume Preview</h2>
+                    <div class="modal-actions">
+                        <div class="template-selector">
+                            <label for="templateSelect">Template:</label>
+                            <select id="templateSelect" class="form-select">
+                                <option value="modern">Modern Professional</option>
+                                <option value="professional">Executive Elite</option>
+                                <option value="ats">ATS Standard</option>
+                                <option value="modern_ats">Modern ATS (Clean)</option>
+                                <option value="executive_ats">Executive ATS (Formal)</option>
+                                <option value="harvard">Harvard (Traditional)</option>
+                                <option value="google">Google (Tech Focus)</option>
+                                <option value="mckinsey">McKinsey (Consulting)</option>
+                                <option value="goldman_sachs">Goldman (Elite Sparse)</option>
+                                <option value="ivy_league">Ivy League (Premium)</option>
+                                <option value="minimal">Minimalist Clean</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary" id="toggleCustomizer" title="Customize Theme">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+                            </svg>
+                            Design
+                        </button>
+                        <button class="btn btn-secondary" id="editSections">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                            </svg>
+                            Edit
+                        </button>
+                        <button class="modal-close" id="closePreview">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <!-- Customization Panel -->
+                    <div class="customization-panel" id="customizationPanel">
+                        <div class="customizer-group">
+                            <label>Accent Color</label>
+                            <div class="color-presets">
+                                <button class="color-preset" style="background: #7c3aed" data-color="#7c3aed"></button>
+                                <button class="color-preset" style="background: #2563eb" data-color="#2563eb"></button>
+                                <button class="color-preset" style="background: #10b981" data-color="#10b981"></button>
+                                <button class="color-preset" style="background: #f59e0b" data-color="#f59e0b"></button>
+                                <button class="color-preset" style="background: #ef4444" data-color="#ef4444"></button>
+                                <input type="color" id="customColor" value="#7c3aed">
+                            </div>
+                        </div>
+                        <div class="customizer-group">
+                            <label>Font Style</label>
+                            <select id="fontSelect">
+                                <option value="'Inter', sans-serif">Modern (Inter)</option>
+                                <option value="'Georgia', serif">Classic (Georgia)</option>
+                                <option value="'Roboto', sans-serif">Clean (Roboto)</option>
+                                <option value="'Times New Roman', serif">Formal (Times)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="resume-preview-container" id="resumePreviewContainer">
+                        <!-- Resume preview will be rendered here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-export" id="modalExportPDF">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                        Export PDF
+                    </button>
+                    <button class="btn btn-export" id="modalExportDOCX">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                        Export DOCX
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Editor Modal -->
+        <div class="modal" id="editorModal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content editor-modal">
+                <div class="modal-header">
+                    <h2>Edit Resume Sections</h2>
+                    <button class="modal-close" id="closeEditor">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="editor-tabs">
+                        <button class="tab-btn active" data-tab="summary">Summary</button>
+                        <button class="tab-btn" data-tab="experience">Experience</button>
+                        <button class="tab-btn" data-tab="education">Education</button>
+                        <button class="tab-btn" data-tab="skills">Skills</button>
+                        <button class="tab-btn" data-tab="projects">Projects</button>
+                    </div>
+                    <div class="editor-content">
+                        <div class="tab-content active" id="tab-summary">
+                            <textarea id="editSummary" rows="6"
+                                placeholder="Edit your professional summary..."></textarea>
+                        </div>
+                        <div class="tab-content" id="tab-experience">
+                            <div id="editExperienceList"></div>
+                        </div>
+                        <div class="tab-content" id="tab-education">
+                            <div id="editEducationList"></div>
+                        </div>
+                        <div class="tab-content" id="tab-skills">
+                            <div class="form-group">
+                                <label>Technical Skills</label>
+                                <input type="text" id="editTechnicalSkills">
+                            </div>
+                            <div class="form-group">
+                                <label>Soft Skills</label>
+                                <input type="text" id="editSoftSkills">
+                            </div>
+                            <div class="form-group">
+                                <label>Tools & Technologies</label>
+                                <input type="text" id="editTools">
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-projects">
+                            <div id="editProjectList"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                    <button class="btn btn-primary" id="saveEdit">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="logo">
+                    <span class="logo-text">GoBot</span>
+                </div>
+                <p>AI-powered career assistance for the modern job market.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#" id="viewApp">Builder</a>
+                    <a href="#pricing">Free Access</a>
+                </div>
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#" id="viewPrivacy">Privacy Policy</a>
+                    <a href="#" id="viewTerms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GoBot AI. All rights reserved. Crafted with ❤️ for job seekers.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Generating your optimized resume...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/utils/keywordExtractor.js"></script>
+    <script src="js/utils/templates.js"></script>
+    <script src="js/utils/atsScoring.js"></script>
+    <script src="js/utils/resumeGenerator.js"></script>
+    <script src="js/utils/resumeOptimizer.js"></script>
+    <script src="js/utils/exportPDF.js"></script>
+    <script src="js/utils/exportDOCX.js"></script>
+    <script src="js/utils/api.js"></script>
+    <script src="js/components/formHandlers.js"></script>
+    <script src="js/components/previewRenderer.js"></script>
+    <script src="js/components/fileUpload.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
